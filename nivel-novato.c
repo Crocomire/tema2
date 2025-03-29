@@ -19,6 +19,10 @@ int main() {
     float capita1, capita2;
     //Super poder, soma de todos os dados inseridos pelo usuário
     float superpoder1, superpoder2;
+    //Declarando o resultado do IF e ELSE do printf para facilitar na digitação do código
+    char Rcarta1[] = "Carta 1 venceu";
+    char Rcarta2[] = "Carta 2 venceu";
+    
 
 
     // ==========Cadastro da primeira carta==========
@@ -104,20 +108,65 @@ int main() {
     //Comparando tamanho da População
     if (populacao01 > populacao02)
     {
-        printf("Carta 1 venceu!\n");
+        printf("%s\n", Rcarta1);
     }
     else
     {
-        printf("Carta 2 Venceu\n");
+        printf("%s\n", Rcarta2);
     }
     //Comparando o tamanho de km²
     if (area01 > area02)
     {
-        printf("Carta 1 Venceu!\n");
+        printf("%s\n", Rcarta1);
     }
     else
     {
-        printf("Carta 2 Venceu!\n");
+        printf("%s\n", Rcarta2);
+    }
+    //Comparando o PIB
+    if (pib01 > pib02)
+    {
+        printf("%s\n", Rcarta1);
+    }
+    else
+    {
+        printf("%s\n", Rcarta2);
+    }
+    //Comparando Pontos Turisticos
+    if (pturistico01 > pturistico02)
+    {
+        printf("%s\n", Rcarta1);
+    }
+    else
+    {
+        printf("%s\n", Rcarta2);
+    }
+    //Comparando a densidade populacional (quanto menor, melhor)
+    if (densidade1 > densidade2)
+    {
+        printf("%s\n", Rcarta1);
+    }
+    else
+    {
+        printf("%s\n", Rcarta2);
+    }
+    //Comparando o PIB per Capita
+    if (capita1 > capita2)
+    {
+        printf("%s\n", Rcarta1);
+    }
+    else
+    {
+        printf("%s\n", Rcarta2);
+    }
+    //Comparando do superpoder
+    if (superpoder1 > superpoder2)
+    {
+        printf("%s\n", Rcarta1);
+    }
+    else
+    {
+        printf("%s\n", Rcarta2);
     }
     
 
