@@ -131,6 +131,7 @@ int main() {
     printf("7. Super poder\n");
     scanf("%d", &opcao2);
     
+    //Evita que o usuário insira a mesma opção duas vezes
     if (opcao2 == opcao1)
     {
         printf("Seleção repetida, escolha uma outra opção: ");
