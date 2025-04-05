@@ -106,117 +106,153 @@ int main() {
     printf("A Densidade Populacional é: %.1f\n", densidade2);
     printf("O PIB per Capita é: %.1f\n", capita2);
 
+
     printf("Selecione 2 opções para comparação: \n");
+
+    //Inserir primeiro número para comparação
+    printf("Primeira opção\n");
     printf("1. Populacao\n");
     printf("2. Área\n");
     printf("3. PiB\n");
     printf("4. Pontos Turisticos\n");
-    printf("5. Densidade Demográfica\n");
+    printf("5. Densidade Populacional\n");
     printf("6. PiB per Capita\n");
     printf("7. Super poder\n");
-
     scanf("%d", &opcao1);
+
+    //Inserir segundo número para comparação
+    printf("Segunda opção\n");
+    printf("1. Populacao\n");
+    printf("2. Área\n");
+    printf("3. PiB\n");
+    printf("4. Pontos Turisticos\n");
+    printf("5. Densidade Populacional\n");
+    printf("6. PiB per Capita\n");
+    printf("7. Super poder\n");
     scanf("%d", &opcao2);
     
     if (opcao2 == opcao1)
     {
-        printf("Seleção repetida, escolha uma outra opção");
+        printf("Seleção repetida, escolha uma outra opção: ");
         scanf("%d", &opcao2);
     }
     
-    switch (opcao1)
-    {
+
+// ===== Comparação da primeira opção =====
+printf("\n--- Comparação da Opção %d ---\n", opcao1);
+switch (opcao1) {
     case 1:
-        /* code */
+        printf("População: Carta 1 = %lu | Carta 2 = %lu\n", populacao01, populacao02);
+        if (populacao01 > populacao02)
+            printf("%s\n", Rcarta1);
+        else
+            printf("%s\n", Rcarta2);
         break;
     case 2:
-        /* code */
+        printf("Área: Carta 1 = %.2f | Carta 2 = %.2f\n", area01, area02);
+        if (area01 > area02)
+            printf("%s\n", Rcarta1);
+        else
+            printf("%s\n", Rcarta2);
         break;
     case 3:
-        /* code */
+        printf("PIB: Carta 1 = %.2f | Carta 2 = %.2f\n", pib01, pib02);
+        if (pib01 > pib02)
+            printf("%s\n", Rcarta1);
+        else
+            printf("%s\n", Rcarta2);
         break;
     case 4:
-        /* code */
+        printf("Pontos Turísticos: Carta 1 = %d | Carta 2 = %d\n", pturistico01, pturistico02);
+        if (pturistico01 > pturistico02)
+            printf("%s\n", Rcarta1);
+        else
+            printf("%s\n", Rcarta2);
         break;
     case 5:
-        /* code */
+        printf("Densidade Populacional: Carta 1 = %.1f | Carta 2 = %.1f\n", densidade1, densidade2);
+        if (densidade1 < densidade2) // quanto menor, melhor
+            printf("%s\n", Rcarta1);
+        else
+            printf("%s\n", Rcarta2);
         break;
     case 6:
-        /* code */
+        printf("PIB per Capita: Carta 1 = %.1f | Carta 2 = %.1f\n", capita1, capita2);
+        if (capita1 > capita2)
+            printf("%s\n", Rcarta1);
+        else
+            printf("%s\n", Rcarta2);
         break;
     case 7:
-        /* code */
+        printf("Super Poder: Carta 1 = %.2f | Carta 2 = %.2f\n", superpoder1, superpoder2);
+        if (superpoder1 > superpoder2)
+            printf("%s\n", Rcarta1);
+        else
+            printf("%s\n", Rcarta2);
         break;
-    
     default:
+        printf("Opção inválida!\n");
         break;
     }
 
-    
-    //Comparando tamanho da População
-    if (populacao01 > populacao02)
-    {
-        printf("%s\n", Rcarta1);
-    }
-    else
-    {
-        printf("%s\n", Rcarta2);
-    }
-    //Comparando o tamanho de km²
-    if (area01 > area02)
-    {
-        printf("%s\n", Rcarta1);
-    }
-    else
-    {
-        printf("%s\n", Rcarta2);
-    }
-    //Comparando o PIB
-    if (pib01 > pib02)
-    {
-        printf("%s\n", Rcarta1);
-    }
-    else
-    {
-        printf("%s\n", Rcarta2);
-    }
-    //Comparando Pontos Turisticos
-    if (pturistico01 > pturistico02)
-    {
-        printf("%s\n", Rcarta1);
-    }
-    else
-    {
-        printf("%s\n", Rcarta2);
-    }
-    //Comparando a densidade populacional (quanto menor, melhor)
-    if (densidade1 > densidade2)
-    {
-        printf("%s\n", Rcarta1);
-    }
-    else
-    {
-        printf("%s\n", Rcarta2);
-    }
-    //Comparando o PIB per Capita
-    if (capita1 > capita2)
-    {
-        printf("%s\n", Rcarta1);
-    }
-    else
-    {
-        printf("%s\n", Rcarta2);
-    }
-    //Comparando do superpoder
-    if (superpoder1 > superpoder2)
-    {
-        printf("%s\n", Rcarta1);
-    }
-    else
-    {
-        printf("%s\n", Rcarta2);
-    }
-    
 
-    return 0;
+    // ===== Comparação da segunda opção =====
+printf("\n--- Comparação da Opção %d ---\n", opcao2);
+switch (opcao2) {
+    case 1:
+        printf("População: Carta 1 = %lu | Carta 2 = %lu\n", populacao01, populacao02);
+        if (populacao01 > populacao02)
+            printf("%s\n", Rcarta1);
+        else
+            printf("%s\n", Rcarta2);
+        break;
+    case 2:
+        printf("Área: Carta 1 = %.2f | Carta 2 = %.2f\n", area01, area02);
+        if (area01 > area02)
+            printf("%s\n", Rcarta1);
+        else
+            printf("%s\n", Rcarta2);
+        break;
+    case 3:
+        printf("PIB: Carta 1 = %.2f | Carta 2 = %.2f\n", pib01, pib02);
+        if (pib01 > pib02)
+            printf("%s\n", Rcarta1);
+        else
+            printf("%s\n", Rcarta2);
+        break;
+    case 4:
+        printf("Pontos Turísticos: Carta 1 = %d | Carta 2 = %d\n", pturistico01, pturistico02);
+        if (pturistico01 > pturistico02)
+            printf("%s\n", Rcarta1);
+        else
+            printf("%s\n", Rcarta2);
+        break;
+    case 5:
+        printf("Densidade Populacional: Carta 1 = %.1f | Carta 2 = %.1f\n", densidade1, densidade2);
+        if (densidade1 < densidade2) // quanto menor, melhor
+            printf("%s\n", Rcarta1);
+        else
+            printf("%s\n", Rcarta2);
+        break;
+    case 6:
+        printf("PIB per Capita: Carta 1 = %.1f | Carta 2 = %.1f\n", capita1, capita2);
+        if (capita1 > capita2)
+            printf("%s\n", Rcarta1);
+        else
+            printf("%s\n", Rcarta2);
+        break;
+    case 7:
+        printf("Super Poder: Carta 1 = %.2f | Carta 2 = %.2f\n", superpoder1, superpoder2);
+        if (superpoder1 > superpoder2)
+            printf("%s\n", Rcarta1);
+        else
+            printf("%s\n", Rcarta2);
+        break;
+    default:
+        printf("Opção inválida!\n");
+        break;
+    }
+
+
+
 }
