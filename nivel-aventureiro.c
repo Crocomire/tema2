@@ -140,7 +140,7 @@ int main() {
     
 
 // ===== Comparação da primeira opção =====
-printf("\n--- Comparação da Opção %d ---\n", opcao1);
+printf("--- Comparação da Opção %d ---\n", opcao1);
 switch (opcao1) {
     case 1:
         printf("População: Carta 1 = %lu | Carta 2 = %lu\n", populacao01, populacao02);
@@ -198,7 +198,7 @@ switch (opcao1) {
 
 
     // ===== Comparação da segunda opção =====
-printf("\n--- Comparação da Opção %d ---\n", opcao2);
+printf("--- Comparação da Opção %d ---\n", opcao2);
 switch (opcao2) {
     case 1:
         printf("População: Carta 1 = %lu | Carta 2 = %lu\n", populacao01, populacao02);
