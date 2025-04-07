@@ -23,16 +23,14 @@ int main() {
     char Rcarta1[] = "Carta 1 venceu";
     char Rcarta2[] = "Carta 2 venceu";
     char empate[] = "Ocorreu um empate";
-    //Opções para o menu de escolha de comparação
+    //Opções para o menu de escolha de comparação, utilizado a partir da linha 120
     int opcao1, opcao2;
     
-
-
     // ==========Cadastro da primeira carta==========
     printf("==== Cadastro da Carta 1 ====\n");
     //Informar a letra inicial do estado
     printf("Digite a letra inicial do seu estado (ex: A, B, C...)\n");
-    scanf(" %c", &estado01);
+    scanf("%c", &estado01);
     //Informar o código da cidade
     printf("Digite o código da cidade (ex: A01, B02): ");
     scanf("%3s", codigo01);
@@ -64,7 +62,7 @@ int main() {
     printf("Área: %.2f km²\n", area01);
     printf("PIB: %.2f\n", pib01);
     printf("Pontos Turísticos: %d\n", pturistico01);
-    printf("A Densidade Populacional é: %.1f\n", densidade1);
+    printf("A Densidade Populacional é: %.4f\n", densidade1);
     printf("O PIB per Capita é: %.1f\n", capita1);
 
 
@@ -104,11 +102,11 @@ int main() {
     printf("Área: %.2f km²\n", area02);
     printf("PIB: %.2f\n", pib02);
     printf("Pontos Turísticos: %d\n", pturistico02);
-    printf("A Densidade Populacional é: %.1f\n", densidade2);
+    printf("A Densidade Populacional é: %.4f\n", densidade2);
     printf("O PIB per Capita é: %.1f\n", capita2);
 
-
     printf("Selecione 2 opções para comparação: \n");
+    printf("Os valores serão somados e em seguida, comparados\n");
 
     //Inserir primeiro número para comparação
     printf("Primeira opção\n");
@@ -139,121 +137,105 @@ int main() {
         scanf("%d", &opcao2);
     }
     
+    // Atribue cada escolha para cara opção das cartas
+    float atributo1_op1 = 0, atributo1_op2 = 0;
+    float atributo2_op1 = 0, atributo2_op2 = 0;
 
-// ===== Comparação da primeira opção =====
-    printf("--- Comparação da Opção %d ---\n", opcao1);
+
+// ===== Atribuindo a opção 1 para uma variável que será usada na soma =====
     switch (opcao1) {
     case 1:
-        printf("População: Carta 1 = %lu | Carta 2 = %lu\n", populacao01, populacao02);
-        if (populacao01 > populacao02)
-            printf("%s\n", Rcarta1);
-        else
-            printf("%s\n", Rcarta2);
+        atributo1_op1 = (float)populacao01;
+        atributo1_op2 = (float)populacao02;
         break;
     case 2:
-        printf("Área: Carta 1 = %.2f | Carta 2 = %.2f\n", area01, area02);
-        if (area01 > area02)
-            printf("%s\n", Rcarta1);
-        else
-            printf("%s\n", Rcarta2);
+        atributo1_op1 = area01;
+        atributo1_op2 = area02;
         break;
     case 3:
-        printf("PIB: Carta 1 = %.2f | Carta 2 = %.2f\n", pib01, pib02);
-        if (pib01 > pib02)
-            printf("%s\n", Rcarta1);
-        else
-            printf("%s\n", Rcarta2);
+        atributo1_op1 = pib01;
+        atributo1_op2 = pib02;
         break;
     case 4:
-        printf("Pontos Turísticos: Carta 1 = %d | Carta 2 = %d\n", pturistico01, pturistico02);
-        if (pturistico01 > pturistico02)
-            printf("%s\n", Rcarta1);
-        else
-            printf("%s\n", Rcarta2);
+        atributo1_op1 = (float)pturistico01;
+        atributo1_op2 = (float)pturistico02;
         break;
     case 5:
-        printf("Densidade Populacional: Carta 1 = %.1f | Carta 2 = %.1f\n", densidade1, densidade2);
-        if (densidade1 < densidade2) // quanto menor, melhor
-            printf("%s\n", Rcarta1);
-        else
-            printf("%s\n", Rcarta2);
+        //Inverte o valor da densidade, já que quanto menor, melhor
+        atributo2_op1 = (densidade1 != 0) ? (1.0 / densidade1) : 0; //Se o valor for falso, atribue a Zero, para evitar divisão por zero
+        atributo2_op2 = (densidade2 != 0) ? (1.0 / densidade2) : 0;
         break;
     case 6:
-        printf("PIB per Capita: Carta 1 = %.1f | Carta 2 = %.1f\n", capita1, capita2);
-        if (capita1 > capita2)
-            printf("%s\n", Rcarta1);
-        else
-            printf("%s\n", Rcarta2);
+        atributo1_op1 = capita1;
+        atributo1_op2 = capita2;
         break;
     case 7:
-        printf("Super Poder: Carta 1 = %.2f | Carta 2 = %.2f\n", superpoder1, superpoder2);
-        if (superpoder1 > superpoder2)
-            printf("%s\n", Rcarta1);
-        else
-            printf("%s\n", Rcarta2);
+        atributo1_op1 = superpoder1;
+        atributo1_op2 = superpoder2;
         break;
     default:
-        printf("Opção inválida!\n");
+        printf("Opção inválida para a primeira comparação!\n");
         break;
     }
 
 
-    // ===== Comparação da segunda opção =====
-    printf("--- Comparação da Opção %d ---\n", opcao2);
+// ===== Atribuindo a opção 2 para uma variável que será usada na soma =====
     switch (opcao2) {
     case 1:
-        printf("População: Carta 1 = %lu | Carta 2 = %lu\n", populacao01, populacao02);
-        if (populacao01 > populacao02)
-            printf("%s\n", Rcarta1);
-        else
-            printf("%s\n", Rcarta2);
+        atributo2_op1 = (float)populacao01;
+        atributo2_op2 = (float)populacao02;
         break;
     case 2:
-        printf("Área: Carta 1 = %.2f | Carta 2 = %.2f\n", area01, area02);
-        if (area01 > area02)
-            printf("%s\n", Rcarta1);
-        else
-            printf("%s\n", Rcarta2);
+        atributo2_op1 = area01;
+        atributo2_op2 = area02;
         break;
     case 3:
-        printf("PIB: Carta 1 = %.2f | Carta 2 = %.2f\n", pib01, pib02);
-        if (pib01 > pib02)
-            printf("%s\n", Rcarta1);
-        else
-            printf("%s\n", Rcarta2);
+        atributo2_op1 = pib01;
+        atributo2_op2 = pib02;
         break;
     case 4:
-        printf("Pontos Turísticos: Carta 1 = %d | Carta 2 = %d\n", pturistico01, pturistico02);
-        if (pturistico01 > pturistico02)
-            printf("%s\n", Rcarta1);
-        else
-            printf("%s\n", Rcarta2);
+        atributo2_op1 = (float)pturistico01;
+        atributo2_op2 = (float)pturistico02;
         break;
     case 5:
-        printf("Densidade Populacional: Carta 1 = %.1f | Carta 2 = %.1f\n", densidade1, densidade2);
-        if (densidade1 < densidade2) // quanto menor, melhor
-            printf("%s\n", Rcarta1);
-        else
-            printf("%s\n", Rcarta2);
+        atributo2_op1 = (densidade1 != 0) ? (1.0 / densidade1) : 0;
+        atributo2_op2 = (densidade2 != 0) ? (1.0 / densidade2) : 0;
         break;
     case 6:
-        printf("PIB per Capita: Carta 1 = %.1f | Carta 2 = %.1f\n", capita1, capita2);
-        if (capita1 > capita2)
-            printf("%s\n", Rcarta1);
-        else
-            printf("%s\n", Rcarta2);
+        atributo2_op1 = capita1;
+        atributo2_op2 = capita2;
         break;
     case 7:
-        printf("Super Poder: Carta 1 = %.2f | Carta 2 = %.2f\n", superpoder1, superpoder2);
-        if (superpoder1 > superpoder2)
-            printf("%s\n", Rcarta1);
-        else
-            printf("%s\n", Rcarta2);
+        atributo2_op1 = superpoder1;
+        atributo2_op2 = superpoder2;
         break;
     default:
-        printf("Opção inválida!\n");
+        printf("Opção inválida para a primeira comparação!\n");
         break;
     }
+
+    // Exibe os valores dos atributos escolhidos
+    printf("--- Valores dos atributos escolhidos ---\n");
+    printf("Para a primeira opção (%d):\n", opcao1);
+    printf("  Carta 1: %.4f\n", atributo1_op1);
+    printf("  Carta 2: %.4f\n", atributo2_op1);
+    printf("Para a segunda opção (%d):\n", opcao2);
+    printf("  Carta 1: %.4f\n", atributo2_op1);
+    printf("  Carta 2: %.4f\n", atributo2_op2);
+
+    //Soma os 2 atributos escolhidos para cada carta
+    float soma1 = atributo1_op1 + atributo2_op1;
+    float soma2 = atributo1_op2 + atributo2_op2;
+
+    // Exibe a soma dos atributos
+    printf("Soma dos atributos escolhidos:\n");
+    printf(" Carta 1 : %.2f\n", soma1);
+    printf(" Carta 2 : %.2f\n", soma2);
+
+    char *resultadoFinal = (soma1 > soma2) ? Rcarta1 : (soma1 < soma2) ? Rcarta2 : empate;
+
+    printf("Resultado Final: %s\n", resultadoFinal);
+
 
     return 0;
 }
